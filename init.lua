@@ -90,8 +90,12 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Disable netrw to use nvim-tree instead
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -203,6 +207,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Keybinding for commenting out
+vim.api.nvim_set_keymap('v', '<leader>/', 'gc', { noremap = true, silent = true })
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -247,6 +254,24 @@ require('lazy').setup({
   --            })
   --        end,
   --    }
+  -- Code Comments: Comments.nvim
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+  },
+  -- File Explorer: nvim-tree
+  {
+    'nvim-tree/nvim-tree.lua',
+    opts = {
+      sort = {
+        sorter = 'case_sensitive',
+      },
+      filters = {
+        dotfiles = false,
+        git_ignored = false,
+      },
+    },
+  },
   --
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`.
@@ -671,6 +696,8 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
+        ts_ls = {},
+
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -952,7 +979,22 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'javascript',
+        'typescript',
+        'terraform',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
