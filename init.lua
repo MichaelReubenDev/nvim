@@ -134,7 +134,15 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
 })
 
 -- Keybinding for commenting out
-vim.api.nvim_set_keymap('v', '<leader>/', 'gc', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>/', 'gc', { noremap = false, silent = true })
+
+-- Copy and Pasting
+-- Delete without copying
+vim.api.nvim_set_keymap('v', 'd', '"_d', { noremap = true })
+vim.api.nvim_set_keymap('v', 'd', '"_d', { noremap = true })
+-- Map for Cut
+vim.api.nvim_set_keymap('n', '<leader>d', 'd', { noremap = true })
+vim.api.nvim_set_keymap('v', '<leader>d', 'd', { noremap = true })
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
