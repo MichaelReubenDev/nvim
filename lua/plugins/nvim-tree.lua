@@ -42,13 +42,8 @@ return {
       -- Default mappings
       api.config.mappings.default_on_attach(bufnr)
 
-      -- Custom keymap: Ctrl+Enter to open in new tab
-      vim.keymap.set('n', '<C-CR>', function()
-        local node = api.tree.get_node_under_cursor()
-        if node and node.type == 'file' then
-          vim.cmd('tabedit ' .. node.absolute_path)
-        end
-      end, opts('Open in new tab'))
+      -- Custom keymap: Shift+Enter to open in new tab
+      vim.keymap.set('n', '<S-CR>', api.node.open.tab, opts('Open in new tab'))
     end,
   },
 }

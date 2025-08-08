@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  setup_tmux_conf:
+    cmd: |
+      ln -sf $HOME/.config/nvim/.tmux.conf $HOME/.tmux.conf
+  
+  reload_tmux:
+    cmd: |
+      tmux source-file ~/.tmux.conf
