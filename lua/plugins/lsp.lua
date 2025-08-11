@@ -101,8 +101,6 @@ return {
       emmet_language_server = {},
       html = {},
       tailwindcss = {},
-      ruby_lsp = {},
-
       -- Python
       pyright = {
         settings = {
