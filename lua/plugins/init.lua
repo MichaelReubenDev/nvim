@@ -9,4 +9,6 @@ return {
   require 'plugins.mini',
   require 'plugins.colorscheme',
   require 'plugins.toggleterm',
+  require 'plugins.devicons',
 }
+
