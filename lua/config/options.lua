@@ -48,3 +48,11 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
     vim.bo.filetype = 'terraform'
   end,
 })
+
+-- Treat .env.* like .env (same syntax highlighting)
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = '.env.*',
+  callback = function()
+    vim.bo.filetype = 'sh'
+  end,
+})

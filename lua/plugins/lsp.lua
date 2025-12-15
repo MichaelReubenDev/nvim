@@ -101,6 +101,8 @@ return {
       emmet_language_server = {},
       html = {},
       tailwindcss = {},
+      gopls = {},
+      gh_actions_ls = {},
       -- Python
       pyright = {
         settings = {
