@@ -10,5 +10,6 @@ return {
   require 'plugins.colorscheme',
   require 'plugins.toggleterm',
   require 'plugins.devicons',
+  require 'plugins.lazygit',
 }
 
